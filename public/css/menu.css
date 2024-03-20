@@ -2,9 +2,10 @@ body{
     background-color: #072935;
 }
 
-td{
+a{
     color: #e9f7fc;
     padding-right: 5vw;
     padding-left: 5vw;
-    font-size: 2%;
+    font-size: 100%;
+    text-decoration: none;
 }
