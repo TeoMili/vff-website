@@ -1,17 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './components/app';
 
-function App(){
-    const [message, setMessage] = useState("");
-
-    useEffect(() => {
-        fetch("http://localhost:8000/message");
-    }, []);
-
-    return(
-        <div className="App">
-            <h1>{message}</h1>
-        </div>
-    );
-}
-
-export default App
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
