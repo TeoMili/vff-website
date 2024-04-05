@@ -1,24 +1,11 @@
-import React, { Component } from 'react';
+function Menu(props){
+    const list = props.menuItems;
 
-class Menu extends Component {
-    state = {
-        count : 0
-    };
+    const updatedList = list.map((item) => {
+        return <li>{item}</li>;
+    });
 
-    handelHome(){
-        console.log('Home clicked');
-    }
-
-    render() { 
-        return (
-        <div>
-           <button onClick={this.handleHome}> Home </button>
-           <button> Proiecte </button>
-           <button> LegisLand </button>
-           <button> Contact </button>
-        </div>
-        );
-    }
+    return <ul>{updatedList}</ul>
 }
  
 export default Menu;
