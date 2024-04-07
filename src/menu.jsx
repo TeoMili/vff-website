@@ -2,10 +2,10 @@ function Menu(props){
     const list = props.menuItems;
 
     const updatedList = list.map((item) => {
-        return <li>{item}</li>;
+        return <li class="menu">{item}</li>;
     });
 
-    return <ul>{updatedList}</ul>
+    return <ul class="menu">{updatedList}</ul>
 }
  
 export default Menu;

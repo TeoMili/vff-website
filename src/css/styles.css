@@ -1,0 +1,30 @@
+.menu{
+    background-color: #072935;
+    list-style-type: none;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+.menu li{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    font-size: 1.3vw;
+    color: #e9f7fc;
+}
+
+.menu li:hover{
+    color: #68B0AB;
+}
+
+li{
+    display: inline-block;
+}
+
+.footer{
+    flex: 1;
+    border-top: 2px solid #072935;
+    padding: 10px;
+}
