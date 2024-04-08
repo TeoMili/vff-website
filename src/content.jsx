@@ -1,6 +1,6 @@
-function Content(){
+function Content({ selectedItem }){
     return(
-        <h1> Content goes here </h1>
+        <h1> Page for: { selectedItem } </h1>
     )
 }
 

@@ -7,6 +7,7 @@ function Menu(props){
 
     const handleClick = (index) => {
         setSelectedIndex(index);
+        props.onSelect(list[index]);
     }
 
     const updatedList = list.map((item, index) => {
