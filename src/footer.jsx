@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function Footer(){
   const [fbActive, setFbActive] = useState(false);
@@ -7,12 +7,12 @@ function Footer(){
 
 
     return(
-      <ul class="footer">
+      <ul className="footer">
         <li> 
             <a  
               onMouseEnter={() => setFbActive(true)}
               onMouseLeave={() => setFbActive(false)}
-              href="https://m.facebook.com/p/Vacan%C8%9Be-F%C4%83r%C4%83-Frontiere-VFF-100069755118295/" target="_blank" class="socials"> 
+              href="https://m.facebook.com/p/Vacan%C8%9Be-F%C4%83r%C4%83-Frontiere-VFF-100069755118295/" target="_blank" className="socials"> 
             
             {fbActive ? (
               <img src = "images/facebook_hover.png" width = "40px"></img>
@@ -27,7 +27,7 @@ function Footer(){
             <a
             onMouseEnter={() => setInstaActive(true)}
             onMouseLeave={() => setInstaActive(false)}
-            href="https://www.instagram.com/vacantefarafrontiere/" target="_blank" class="socials">
+            href="https://www.instagram.com/vacantefarafrontiere/" target="_blank" className="socials">
             
             {instaActive ? (
               <img src="images/instagram_hover.png" width = "40px"></img> 
@@ -42,7 +42,7 @@ function Footer(){
           <a 
           onMouseEnter={() => setLinkedActive(true)}
           onMouseLeave={() => setLinkedActive(false)}
-          href="https://www.linkedin.com/company/vacan-e-f-r-frontiere/" target="_blank" class="socials">
+          href="https://www.linkedin.com/company/vacan-e-f-r-frontiere/" target="_blank" className="socials">
             
           {linkedActive ? (
             <img src="images/linkedin_hover.png" width = "40px"></img> 

@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './header';
 import Menu from './menu';
+import Content from './content';
 import Footer from './footer';
 import './css/styles.css';
 
@@ -11,6 +12,7 @@ function Main(){
         <div>
             <Header />
             <Menu menuItems = {menuItems} />
+            <Content />
             <Footer />
         </div>
     )
