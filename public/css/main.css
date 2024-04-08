@@ -4,32 +4,6 @@ html, body{
     background-color: #FFF4EB;
 }
 
-.frame{
-    border: none;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-#header{
-    height: 10vh;
-}
-
-#menu{
-    margin-top: 0;
-    height: 10vh;
-}
-
-#footer{
-    flex: 1;
-    border-top: 2px solid #072935;
-}
-
-.socials{
-    text-decoration: none;
-    padding: 0 1vw;
-}
-
 
 
 

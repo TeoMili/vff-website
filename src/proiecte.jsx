@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-function App(){
+function Proiecte(){
+
     const [message, setMessage] = useState('');
 
     useEffect(() => {
@@ -15,11 +16,12 @@ function App(){
     }, []);
 
     return(
-        <div className="App">
+        <>
+            <h1> This is the projects page </h1>
             <h1> Data from the server: </h1>
             <p> {message} </p>
-        </div>
+        </>
     );
 }
 
-export default App
+export default Proiecte;
