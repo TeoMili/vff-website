@@ -7,7 +7,7 @@ import './css/styles.css';
 
 const menuItems = ["Home", "Proiecte", "LegisLand", "Contact"];
 
-function Main(){
+function App(){
     return(
         <div>
             <Header />
@@ -18,4 +18,4 @@ function Main(){
     )
 }
 
-export default Main;
+export default App;
