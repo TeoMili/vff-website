@@ -9,7 +9,6 @@ const server = http.createServer(function(req, res) {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write('Hello World');
 
     //get data from database
     var queryInfo = 'SELECT * FROM projects';
@@ -24,6 +23,7 @@ const server = http.createServer(function(req, res) {
     });
     
 });
+
 server.listen(5000, function(){
     console.log('Listening on port 5000');
 });
