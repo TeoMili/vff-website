@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function Proiect({name, description}){
+function ProiectItem({name, description}){
     const [fileContent, setFileContent] = useState("");
 
     useEffect(() => {
@@ -28,4 +28,4 @@ function Proiect({name, description}){
     )
 }
 
-export default Proiect;
+export default ProiectItem;
