@@ -35,3 +35,7 @@ li{
     border-top: 2px solid #072935;
     padding: 10px;
 }
+
+.description{
+    white-space: pre-wrap;
+}

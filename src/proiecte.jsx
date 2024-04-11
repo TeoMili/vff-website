@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Proiect from './proiect';
 
 function Proiecte(){
 
@@ -24,7 +25,7 @@ function Proiecte(){
             <h1> Data from the server: </h1>
             <ul>
                 {data.map(item => (
-                    <li key={item.id}>{item.name}</li>
+                    <Proiect key={item.id} name={item.name} description={item.description} />
                 ))}
             </ul>
         </>
