@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
-import Header from './header';
-import Menu from './menu';
-import Content from './content';
-import Footer from './footer';
+import Header from './components/header';
+import Menu from './components/menu';
+import Content from './components/content';
+import Footer from './components/footer';
 import './css/styles.css';
 
 const menuItems = ["Home", "Proiecte", "LegisLand", "Contact"];
