@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import ProiectItem from './proiectItem';
+import Project from './project';
 
-function Proiecte(){
+function Projects(){
 
     const [data, setData] = useState([]);
 
@@ -22,14 +22,13 @@ function Proiecte(){
     return(
         <>
             <h1> This is the projects page </h1>
-            <h1> Data from the server: </h1>
             <ul>
                 {data.map(item => (
-                    <ProiectItem key={item.id} name={item.name} description={item.description} />
+                    <Project key={item.id} name={item.name} description={item.description} />
                 ))}
             </ul>
         </>
     );
 }
 
-export default Proiecte;
+export default Projects;

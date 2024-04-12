@@ -39,3 +39,9 @@ li{
 .description{
     white-space: pre-wrap;
 }
+
+#project{
+    background-color: #68B0AB;
+    margin-right: 40px;
+    text-align: left;
+}

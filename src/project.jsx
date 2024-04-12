@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function ProiectItem({name, description}){
+function Project({name, description}){
     const [fileContent, setFileContent] = useState("");
 
     useEffect(() => {
@@ -21,11 +21,11 @@ function ProiectItem({name, description}){
     }
 
     return(
-        <div>
+        <div id = "project">
         <h1> {name} </h1>
         <p className="description"> {fileContent} </p>
         </div>
     )
 }
 
-export default ProiectItem;
+export default Project;

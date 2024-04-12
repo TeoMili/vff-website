@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 function Menu(props){
+
     const list = props.menuItems;
 
     const [selectedIndex, setSelectedIndex] = useState(0);

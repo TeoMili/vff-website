@@ -1,11 +1,11 @@
 import Home from './home';
-import Proiecte from './proiecte';
+import Projects from './projects';
 import Game from './game';
 import Contact from './contact';
 
 const componentMap = {
     "Home" : Home,
-    "Proiecte" : Proiecte,
+    "Proiecte" : Projects,
     "LegisLand" : Game,
     "Contact" : Contact
 };

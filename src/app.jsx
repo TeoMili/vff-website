@@ -17,12 +17,12 @@ function App(){
     }
 
     return(
-        <div>
-            <Header />
-            <Menu menuItems = {menuItems} onSelect={handleMenuSelect}/>
-            <Content selectedItem={selectedItem}/>
-            <Footer />
-        </div>
+        <>
+        <Header />
+        <Menu menuItems = {menuItems} onSelect={handleMenuSelect}/>
+        <Content selectedItem={selectedItem} />
+        <Footer />
+        </>
     )
 }
 

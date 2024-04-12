@@ -8,10 +8,11 @@ const server = http.createServer(function(req, res) {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.writeHead(200, {'Content-Type' : 'text/html'});
 
-    //get data from database
-    var queryInfo = 'SELECT * FROM projects';
+    const queryInfo = 'SELECT * FROM projects';
+
+    //get data from database 
     client.query(queryInfo, (err, result) => {
         if(err){
             console.log('Error executing query', err);
