@@ -1,5 +1,6 @@
 //create a server
 const http = require('http');
+const url = require('url');
 const client = require('./database');
 
 const server = http.createServer(function(req, res) {
@@ -10,7 +11,17 @@ const server = http.createServer(function(req, res) {
 
     res.writeHead(200, {'Content-Type' : 'text/html'});
 
-    const queryInfo = 'SELECT * FROM projects';
+    var queryInfo = "";
+    
+    //parse url to extract query parameters
+    const parsedUrl = url.parse(req.url, true);
+    const queryId = parsedUrl.query.id;
+
+    if(req.method === 'GET' && req.url === '/api/projects'){
+        queryInfo = 'SELECT * FROM projects';
+    }else if(req.method === 'GET' && parsedUrl.pathname === '/api/projectData'){
+        queryInfo = `SELECT * FROM projects WHERE id = ${queryId}`;
+    }
 
     //get data from database 
     client.query(queryInfo, (err, result) => {

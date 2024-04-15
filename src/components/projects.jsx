@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Project from './project';
+import ProjectPage from './projectPage';
 
 function Projects(){
 
     const [data, setData] = useState([]);
+    const [selectedProject, setSelectedProject] = useState(0);
 
     useEffect(() => {
         fetchData();
@@ -11,7 +13,7 @@ function Projects(){
 
     const fetchData = async () => {
         try{
-            const response = await fetch('http://localhost:5000/api/data');
+            const response = await fetch('http://localhost:5000/api/projects');
             const jsonData = await response.json();
             setData(jsonData);
         }catch(error){
@@ -19,14 +21,31 @@ function Projects(){
         }
     };
 
+    const handleClick = (index) => {
+        setSelectedProject(index);
+        console.log(index);
+    }
+
+    const loadProjects = () => {
+        setSelectedProject(0);
+    }
+
     return(
         <>
-            <h1> This is the projects page </h1>
-            <ul>
-                {data.map(item => (
-                    <Project key={item.id} name={item.name} description={item.description} />
-                ))}
-            </ul>
+            {selectedProject === 0 ?
+                <>
+                <h1> Our Projects </h1>
+                <ul>
+                    {data.map(item => (
+                        <Project key={item.id} name={item.name} description={item.description} 
+                        onClick={() => handleClick(item.id)}
+                        />
+                    ))}
+                </ul>
+                </>
+                :
+                <ProjectPage projectId={selectedProject} onBackClick={loadProjects} />
+            }
         </>
     );
 }

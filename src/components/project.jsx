@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function Project({name, description}){
+function Project({name, description, onClick}){
     const [fileContent, setFileContent] = useState("");
 
     useEffect(() => {
@@ -21,7 +21,7 @@ function Project({name, description}){
     }
 
     return(
-        <div id = "project">
+        <div id = "project" onClick={onClick}>
         <h1> {name} </h1>
         <p className="description"> {fileContent} </p>
         </div>
