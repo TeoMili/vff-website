@@ -37,7 +37,7 @@ function Projects(){
                 <h1> Our Projects </h1>
                 <ul>
                     {data.map(item => (
-                        <Project key={item.id} name={item.name} description={item.description} 
+                        <Project key={item.id} name={item.name} description={item.s_description} 
                         onClick={() => handleClick(item.id)}
                         />
                     ))}

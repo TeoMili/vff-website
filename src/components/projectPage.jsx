@@ -17,7 +17,7 @@ function ProjectPage({ projectId, onBackClick }){
             const jsonData = await response.json();
             console.log(jsonData);
             setData(jsonData[0]);
-            fetchFileContent(jsonData[0].description);
+            fetchFileContent(jsonData[0].l_description);
         }catch(error){
             console.error('Error fetching data: ', error);
         }
