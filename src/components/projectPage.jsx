@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 function ProjectPage({ projectId, onBackClick }){ 
     const [data, setData] = useState({});
     const [fileContent, setFileContent] = useState("");
+    const [images, setImages] = useState([]);
     
     useEffect(() => {
         fetchData();
@@ -15,9 +16,15 @@ function ProjectPage({ projectId, onBackClick }){
                 throw new Error("Failed to fetch project data");
             }
             const jsonData = await response.json();
-            console.log(jsonData);
             setData(jsonData[0]);
             fetchFileContent(jsonData[0].l_description);
+
+            const imageArray = jsonData.map(row => ({
+                id: row.id,
+                path: row.image
+            }));
+
+            setImages(imageArray);
         }catch(error){
             console.error('Error fetching data: ', error);
         }
@@ -45,6 +52,9 @@ function ProjectPage({ projectId, onBackClick }){
         <button onClick={handleBackClick}> Back </button>
         <h1> {data.name} </h1>
         <h2> {fileContent} </h2>
+        {images.map(item => (
+            <img key={item.id} class="project_img" src={item.path} alt={`Image ${item.id}`}></img>
+        ))}
         </>
     )
 }

@@ -9,18 +9,18 @@ const server = http.createServer(function(req, res) {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-    res.writeHead(200, {'Content-Type' : 'text/html'});
+    res.writeHead(200, {'Content-Type' : 'application/json'});
 
     var queryInfo = "";
     
     //parse url to extract query parameters
     const parsedUrl = url.parse(req.url, true);
-    const queryId = parsedUrl.query.id;
 
     if(req.method === 'GET' && req.url === '/api/projects'){
-        queryInfo = 'SELECT * FROM projects';
+        queryInfo = 'SELECT * FROM projects;';
     }else if(req.method === 'GET' && parsedUrl.pathname === '/api/projectData'){
-        queryInfo = `SELECT * FROM projects WHERE id = ${queryId}`;
+        const projectId = parsedUrl.query.id;
+        queryInfo = `SELECT * FROM projects JOIN images ON projects.ID = images.Project_ID WHERE projects.ID = ${projectId};`;
     }
 
     //get data from database 
