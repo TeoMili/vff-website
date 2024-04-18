@@ -1,7 +1,6 @@
-function GameDescription(){
+function GameDescription({ startGame }){
     return(
         <>
-        <h1> Welcome to LegisLand! </h1>
         <h3> 
             Bine ați venit în LegisLand - unde elevii devin europarlamentari și votează legi fictive, fără conotații politice.
             <br />
@@ -19,34 +18,34 @@ function GameDescription(){
                 </thead>
                 <tbody>                
                     <tr> 
-                        <td> Logo </td>
+                        <td> <img src="images/logo_partide/logo_moara.png" width="200vw" alt="Logo Moara cu Noroc" /> </td>
                         <td> Liga Moara cu Noroc </td> 
                         <td> Animalele sunt mândria noastră! </td>    
-                        <td> Nume Persoana </td>
+                        <td> Lică Porcarul </td>
                     </tr>
                     <tr>
-                        <td> Logo </td>
+                        <td> <img src="images/logo_partide/logo_pn.png" width="200vw" alt="Logo Puterea Noastră" /> </td>
                         <td> Partidul Puterea Noastră </td>
                         <td> Iubim poporul nostru! </td>   
-                        <td> Nume Persoana </td> 
+                        <td> Amanda Smith </td> 
                     </tr>
                     <tr>
-                        <td> Logo </td> 
+                        <td> <img src="images/logo_partide/logo_pamant.png" width="200vw" alt="Logo Glasul Pământului" /> </td> 
                         <td> Partidul Glasul Pământului </td>
                         <td> Pentru pământ și agricultori! </td>   
-                        <td> Nume Persoana </td>
+                        <td> Ion John </td>
                     </tr>
                     <tr>
-                        <td> Logo </td> 
+                        <td> <img src="images/logo_partide/logo_eco.png" width="200vw" alt="Logo Forza Eco-Green" /> </td> 
                         <td> Gruparea Forza Eco-Green </td>
                         <td> Susținem reciclarea si sustenabilitatea! </td>    
-                        <td> Nume Persoana </td>
+                        <td> Greta Green </td>
                     </tr>
                     <tr> 
-                        <td> Logo </td>
+                        <td> <img src="images/logo_partide/logo_pv.png" width="200vw" alt="Logo Puterea Voastră" /> </td>
                         <td> Partidul Puterea Voastră </td>
                         <td> Valori pro-europene și progresiste! </td>
-                        <td> Nume Persoana </td>
+                        <td> Stela Keynes </td>
                     </tr>
                 </tbody>
             </table>
@@ -60,7 +59,7 @@ function GameDescription(){
         mai exact cât si de ce este crucial să fie reprezentate toate vocile, în special a lor, în procesul decizional.
         Haideți să explorăm împreună lumea fascinanta a politicii și să dăm viață ideilor noastre!
         </h3>
-        <button> Începe-ți aventura LegisLand! </button>
+        <button onClick={startGame}> Începe-ți aventura LegisLand! </button>
         </>
     )
 }

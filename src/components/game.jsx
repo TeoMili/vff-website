@@ -1,8 +1,19 @@
+import { useState } from "react";
 import GameDescription from './gameDescription';
+import GameContent from './gameContent';
 
 function Game(){
+    const [onGame, setOnGame] = useState(false);
+
+    const handleClick = () => {
+        setOnGame(true);
+    }
+
     return(
-      <GameDescription />
+        <>
+            <h1> Welcome to LegisLand! </h1>
+            {onGame ? <GameContent /> : <GameDescription startGame={handleClick}/>}
+        </>
     )
 }
 
