@@ -49,3 +49,8 @@ li{
 .project_img{
     width: 20vw;
 }
+
+#partide td, th{
+    border: 1px solid;
+    padding: 2vw;
+}

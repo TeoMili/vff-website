@@ -1,6 +1,8 @@
+import GameDescription from './gameDescription';
+
 function Game(){
     return(
-        <h1> Welcome to LegisLand </h1>
+      <GameDescription />
     )
 }
 
