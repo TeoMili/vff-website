@@ -1,4 +1,13 @@
-function Home(){
+import { useState, useEffect } from "react";
+
+function Home({ handleClick }){
+    const [onHome, setOnHome] = useState(true);    
+
+    const displayEU360 = () => {
+        console.log("hey");
+        setOnHome(false);
+    };
+
     return(
         <>
         <div>
@@ -11,11 +20,18 @@ function Home(){
             </h3>
         </div>
         <div>
-            <h1> Proiecte Recente/Ongoing </h1>
-            <h3> !manually or from db? </h3>
+            <h1> Eu360&deg; </h1>
+            <h3> 
+                Asociația Vacanțe Fără Frontiere lansează seria de evenimente EU360&deg;! 
+                Descoperă totul despre UE și pregatește-te pentru alegerile din acest an, 
+                participând la discuții interesante și jocuri interactive! <br />
+                Alătură-te campaniei noastre de informare și explorează UE din toate unghiurile! 
+            </h3>
+            <h3> <button onClick={displayEU360}>  Mai multe detalii </button> </h3>
+            <h3> Vrei ca Eu360&deg; sa vină și în școala ta? Contact us!</h3>
         </div>
         <div>
-            <h1> Mica galerie foto </h1>
+            <h1> Mică galerie foto </h1>
         </div>
         </>
     )

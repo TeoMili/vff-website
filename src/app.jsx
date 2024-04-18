@@ -20,7 +20,7 @@ function App(){
         <>
         <Header />
         <Menu menuItems = {menuItems} onSelect={handleMenuSelect}/>
-        <Content selectedItem={selectedItem} />
+        <Content selectedItem={selectedItem}/>
         <Footer />
         </>
     )
