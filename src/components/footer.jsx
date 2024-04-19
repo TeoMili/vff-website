@@ -7,6 +7,7 @@ function Footer(){
 
 
     return(
+      <>
       <ul className="footer">
         <li> 
             <a  
@@ -52,7 +53,9 @@ function Footer(){
             
           </a>
         </li>
+        <li style={{ fontSize: '1vw', float: 'right' }}> &#9993; vacantefarafrontiere@gmail.com </li>
       </ul>
+      </>
     )
 }
  
