@@ -1,10 +1,13 @@
+CREATE TYPE projectType as ENUM ('Proiect', 'Club', 'Petrecere');
+
 DROP TABLE IF EXISTS projects CASCADE;
 
 CREATE TABLE projects(
     ID SERIAL PRIMARY KEY,
     Name varchar(255) NOT NULL,
     S_Description TEXT NOT NULL,
-    L_Description TEXT NOT NULL
+    L_Description TEXT NOT NULL,
+    Tag projectType
 );
 
 DROP TABLE IF EXISTS images;

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 
 function Home({ handleClick }){
+    const displayProjects = ["EU360"];
+
     const [onHome, setOnHome] = useState(true);    
 
     const displayEU360 = () => {

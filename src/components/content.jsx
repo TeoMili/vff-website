@@ -4,7 +4,7 @@ import Game from './game';
 import Contact from './contact';
 
 const componentMap = {
-    "Home" : Home,
+    "Acasă" : Home,
     "Proiecte" : Projects,
     "LegisLand" : Game,
     "Contact" : Contact

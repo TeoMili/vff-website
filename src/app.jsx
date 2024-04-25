@@ -6,7 +6,7 @@ import Content from './components/content';
 import Footer from './components/footer';
 import './css/styles.css';
 
-const menuItems = ["Home", "Proiecte", "LegisLand", "Contact"];
+const menuItems = ["Acasă", "Proiecte", "LegisLand", "Contact"];
 
 function App(){
 

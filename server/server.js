@@ -20,7 +20,7 @@ const server = http.createServer(function(req, res) {
         queryInfo = 'SELECT * FROM projects;';
     }else if(req.method === 'GET' && parsedUrl.pathname === '/api/projectData'){
         const projectId = parsedUrl.query.id;
-        queryInfo = `SELECT * FROM projects JOIN images ON projects.ID = images.Project_ID WHERE projects.ID = ${projectId};`;
+        queryInfo = `SELECT * FROM projects LEFT JOIN images ON projects.ID = images.Project_ID WHERE projects.ID = ${projectId};`;
     }
 
     //get data from database 
