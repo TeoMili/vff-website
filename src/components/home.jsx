@@ -40,18 +40,28 @@ function Home(){
     return(
         <>
         <div>
-            <h1> Cine suntem noi? </h1>
-            <h3> 
-            VFF este o organizatie care se identifica cu deviza "tineri pentru tineri".
-            Scopul principal al ONGului este de a dezvolta proiecte si activitati pentru tineri prin care sa 
-            incurajeze implicarea civica, creativitatea, exprimarea libera, munca in echipa si informarea in legatura
-            cu teme actuale.    
-            </h3>
+            <table>
+                <tr> 
+                    <td> <img src="images/vff-logo.png" width="300px"/> </td>
+                    <td>
+                        <h1> Cine suntem noi? </h1>
+                        <h3> 
+                            VFF este o organizatie care se identifica cu deviza "tineri pentru tineri".
+                            Scopul principal al ONGului este de a dezvolta proiecte si activitati pentru tineri prin care sa 
+                            incurajeze implicarea civica, creativitatea, exprimarea libera, munca in echipa si informarea in legatura
+                            cu teme actuale.    
+                        </h3>
+                    </td>
+                </tr>
+            </table>
+            
         </div>
             <h1> Proiecte Recente: </h1>
             {data.map(project => (
                 <div key={project.id}>
-                <ProjectPage projectId={project.id} />
+                <h1> {project.name} </h1>
+                <h2> Descrierea scurta aici </h2>
+                <button> Mai multe informatii </button>
                 </div>
             ))}
         <div>

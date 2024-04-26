@@ -20,3 +20,10 @@ CREATE TABLE images(
         FOREIGN KEY (Project_ID)
         REFERENCES projects(ID)
 );
+
+DROP TABLE IF EXISTS rooms CASCADE;
+
+CREATE TABLE rooms(
+    ID SERIAL PRIMARY KEY,
+    Join_Code INTEGER UNIQUE
+);

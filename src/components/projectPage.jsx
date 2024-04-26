@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 
 function ProjectPage({ projectId, onBackClick }){ 
     const [data, setData] = useState({});
-    const [fileContent, setFileContent] = useState("");
+    const [shortDescription, setShortDescription] = useState("");
+    const [longDescription, setLongDescription] = useState("");
     const [images, setImages] = useState([]);
     
     useEffect(() => {
@@ -17,7 +18,8 @@ function ProjectPage({ projectId, onBackClick }){
             }
             const jsonData = await response.json();
             setData(jsonData[0]);
-            fetchFileContent(jsonData[0].l_description);
+            fetchShortDescription(jsonData[0].s_description);
+            fetchLongDescription(jsonData[0].l_description);
 
             const imageArray = jsonData.map(row => ({
                 id: row.id,
@@ -31,14 +33,27 @@ function ProjectPage({ projectId, onBackClick }){
         }
     };
 
-    const fetchFileContent = async (filePath) => {
+    const fetchLongDescription = async (filePath) => {
         try{
             const response = await fetch(filePath);
             if(!response.ok){
                 throw new Error("Failed to fetch file contents");
             }
             const description = await response.text();
-            setFileContent(description);
+            setLongDescription(description);
+        }catch(error){
+            console.error("Error fetching file content", error);
+        }
+    }
+
+    const fetchShortDescription = async (filePath) => {
+        try{
+            const response = await fetch(filePath);
+            if(!response.ok){
+                throw new Error("Failed to fetch file contents");
+            }
+            const description = await response.text();
+            setShortDescription(description);
         }catch(error){
             console.error("Error fetching file content", error);
         }
@@ -51,9 +66,21 @@ function ProjectPage({ projectId, onBackClick }){
     return(
         <>
         <button onClick={handleBackClick}> Back </button>
-        <h1> {data.name} </h1>
-        <h2> {fileContent} </h2>
-        {images.map(item => (
+        <br />
+        <table>
+            <tr> 
+            {images[0] && <td> <img src={images[0].path} alt="Main Image"  width="500px"/> </td>}
+            <td> 
+                <h1> {data.name} </h1> 
+                <h2> {shortDescription} </h2>
+            </td>    
+            </tr>
+            <tr>
+                <td> <h2> {longDescription} </h2> </td>
+            </tr>
+        </table>
+        <h1> De aici incep pozele: </h1>
+        {images.slice(1).map(item => (
             item.path && <img key={item.id} className="project_img" src={item.path} alt={`Image ${item.id}`} />
         ))}
         </>
