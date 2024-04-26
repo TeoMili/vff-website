@@ -1,14 +1,41 @@
+import ProjectPage from "./projectPage";
 import { useState, useEffect } from "react";
 
-function Home({ handleClick }){
-    const displayProjects = ["EU360"];
+function Home(){
+    const displayProjects = ['EU360', 'Project 1'];
+    
+    const [data, setData] = useState([]); 
 
-    const [onHome, setOnHome] = useState(true);    
+    useEffect(() => {
+        fetchData();
+    }, []);
 
-    const displayEU360 = () => {
-        console.log("hey");
-        setOnHome(false);
+    const fetchData = async () => {
+        try{
+            const projectsData = [];
+            for(const project of displayProjects){
+                const response = await fetch(`http://localhost:5000/api/home?name=${project}`);
+                const projectData = await response.json();
+                projectsData.push(projectData[0]);
+            }
+            setData(projectsData);
+        }catch(error){
+            console.error('Error fetching data', error);
+        }
     };
+
+    const loadFileContent = async (filePath) => {
+        try{
+            const response = await fetch(filePath);
+            if(!response.ok){
+                throw new Error("Failed to fetch file contents");
+            }
+            const description = await response.text();
+            return description;
+        }catch(error){
+            console.error("Error fetching file content", error);
+        }
+    }
 
     return(
         <>
@@ -21,17 +48,12 @@ function Home({ handleClick }){
             cu teme actuale.    
             </h3>
         </div>
-        <div>
-            <h1> Eu360&deg; </h1>
-            <h3> 
-                Asociația Vacanțe Fără Frontiere lansează seria de evenimente EU360&deg;! 
-                Descoperă totul despre UE și pregatește-te pentru alegerile din acest an, 
-                participând la discuții interesante și jocuri interactive! <br />
-                Alătură-te campaniei noastre de informare și explorează UE din toate unghiurile! 
-            </h3>
-            <h3> <button onClick={displayEU360}>  Mai multe detalii </button> </h3>
-            <h3> Vrei ca Eu360&deg; sa vină și în școala ta? Contact us!</h3>
-        </div>
+            <h1> Proiecte Recente: </h1>
+            {data.map(project => (
+                <div key={project.id}>
+                <ProjectPage projectId={project.id} />
+                </div>
+            ))}
         <div>
             <h1> Mică galerie foto </h1>
         </div>

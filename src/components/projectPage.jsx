@@ -16,19 +16,15 @@ function ProjectPage({ projectId, onBackClick }){
                 throw new Error("Failed to fetch project data");
             }
             const jsonData = await response.json();
-            if(jsonData.length > 0){
-                setData(jsonData[0]);
-                fetchFileContent(jsonData[0].l_description);
+            setData(jsonData[0]);
+            fetchFileContent(jsonData[0].l_description);
 
-                const imageArray = jsonData.map(row => ({
-                    id: row.id,
-                    path: row.image
-                }));
+            const imageArray = jsonData.map(row => ({
+                id: row.id,
+                path: row.image
+            }));
 
-                setImages(imageArray);
-            }else{
-                throw new Error("Project data is empty");
-            }
+            setImages(imageArray); 
             
         }catch(error){
             console.error('Error fetching data: ', error);

@@ -18,6 +18,11 @@ const server = http.createServer(function(req, res) {
 
     if(req.method === 'GET' && req.url === '/api/projects'){
         queryInfo = 'SELECT * FROM projects;';
+    }else if(req.method === 'GET' && parsedUrl.pathname === '/api/home'){
+        const projectName = parsedUrl.query.name;
+        console.log(projectName);
+        queryInfo = `SELECT * FROM projects WHERE Name = '${projectName}';`;
+        console.log("Query info: ", queryInfo);
     }else if(req.method === 'GET' && parsedUrl.pathname === '/api/projectData'){
         const projectId = parsedUrl.query.id;
         queryInfo = `SELECT * FROM projects LEFT JOIN images ON projects.ID = images.Project_ID WHERE projects.ID = ${projectId};`;
