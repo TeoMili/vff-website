@@ -35,13 +35,14 @@ function Projects(){
             {selectedProject === 0 ?
                 <>
                 <h1> Our Projects </h1>
-                <ul>
                     {data.map(item => (
+                        <>
                         <Project key={item.id} name={item.name} description={item.s_description} 
                         onClick={() => handleClick(item.id)}
-                        />
+                        /> 
+                        <br />
+                        </>
                     ))}
-                </ul>
                 </>
                 :
                 <ProjectPage projectId={selectedProject} onBackClick={loadProjects} />

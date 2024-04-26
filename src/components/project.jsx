@@ -21,7 +21,7 @@ function Project({name, description, onClick}){
     }
 
     return(
-        <div id = "project" onClick={onClick}>
+        <div className = "project" onClick={onClick}>
         <h1> {name} </h1>
         <p className="description"> {fileContent} </p>
         </div>
