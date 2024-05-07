@@ -1,41 +1,36 @@
-import ProjectPage from "./projectPage";
+import Project from "./project";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Home(){
-    const displayProjects = ['EU360', 'Project 1'];
-    
-    const [data, setData] = useState([]); 
+
+    const displayProject = ['EU360'];
+
+    const [displayProjectId, setDisplayProjectId] = useState();
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchData();
     }, []);
 
+    //get the id of the project chosen for display
     const fetchData = async () => {
         try{
-            const projectsData = [];
-            for(const project of displayProjects){
-                const response = await fetch(`http://localhost:5000/api/home?name=${project}`);
-                const projectData = await response.json();
-                projectsData.push(projectData[0]);
-            }
-            setData(projectsData);
+            const response = await fetch(`http://localhost:5000/api/home?name=${displayProject}`);
+            const projectId = await response.json();
+            console.log(projectId.id);
+            setDisplayProjectId(projectId);
         }catch(error){
             console.error('Error fetching data', error);
         }
     };
 
-    const loadFileContent = async (filePath) => {
-        try{
-            const response = await fetch(filePath);
-            if(!response.ok){
-                throw new Error("Failed to fetch file contents");
-            }
-            const description = await response.text();
-            return description;
-        }catch(error){
-            console.error("Error fetching file content", error);
-        }
-    }
+    const Navigate = () => {
+        console.log("Clicked nav");
+        navigate('/projects');
+    };
+
 
     return(
         <>
@@ -56,14 +51,11 @@ function Home(){
             </table>
             
         </div>
+        <div>
             <h1> Proiecte Recente: </h1>
-            {data.map(project => (
-                <div key={project.id}>
-                <h1> {project.name} </h1>
-                <h2> Descrierea scurta aici </h2>
-                <button> Mai multe informatii </button>
-                </div>
-            ))}
+            <Project projectId={displayProjectId} />
+            <button onClick={Navigate}> navigate </button>
+        </div>
         <div>
             <h1> Mică galerie foto </h1>
         </div>

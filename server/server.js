@@ -17,11 +17,14 @@ const server = http.createServer(function(req, res) {
     const parsedUrl = url.parse(req.url, true);
 
     if(req.method === 'GET' && req.url === '/api/projects'){
-        queryInfo = 'SELECT * FROM projects;';
+        queryInfo = 'SELECT ID FROM projects;';
+    }else if(req.method === 'GET' && parsedUrl.pathname === '/api/project'){
+        const projectId = parsedUrl.query.id;
+        queryInfo = `SELECT Name, S_Description from projects WHERE ID = ${projectId}`;
     }else if(req.method === 'GET' && parsedUrl.pathname === '/api/home'){
         const projectName = parsedUrl.query.name;
         console.log(projectName);
-        queryInfo = `SELECT * FROM projects WHERE Name = '${projectName}';`;
+        queryInfo = `SELECT ID FROM projects WHERE Name = '${projectName}';`;
         console.log("Query info: ", queryInfo);
     }else if(req.method === 'GET' && parsedUrl.pathname === '/api/projectData'){
         const projectId = parsedUrl.query.id;

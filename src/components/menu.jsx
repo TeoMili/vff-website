@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Menu(props){
 
@@ -6,9 +7,19 @@ function Menu(props){
 
     const [selectedIndex, setSelectedIndex] = useState(0);
 
+    const navigate = useNavigate();
+
+    const componentMap = {
+        "Acasă" : "/",
+        "Proiecte" : "/proiecte",
+        "LegisLand" : "/legisland",
+        "Contact" : "/contact"
+    };
+
     const handleClick = (index) => {
         setSelectedIndex(index);
         props.onSelect(list[index]);
+        navigate(componentMap[list[index]]);
     }
 
     const updatedList = list.map((item, index) => {
