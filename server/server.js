@@ -24,7 +24,7 @@ const server = http.createServer(function(req, res) {
     }else if(req.method === 'GET' && parsedUrl.pathname === '/api/home'){
         const projectName = parsedUrl.query.name;
         console.log(projectName);
-        queryInfo = `SELECT ID FROM projects WHERE Name = '${projectName}';`;
+        queryInfo = `SELECT ID, S_Description FROM projects WHERE Name = '${projectName}';`;
         console.log("Query info: ", queryInfo);
     }else if(req.method === 'GET' && parsedUrl.pathname === '/api/projectData'){
         const projectId = parsedUrl.query.id;

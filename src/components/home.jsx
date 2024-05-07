@@ -1,12 +1,14 @@
-import Project from "./project";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Home(){
 
     const displayProject = ['EU360'];
+    const displayImage = "images/project1/i1.jpg";
 
     const [displayProjectId, setDisplayProjectId] = useState();
+
+    const [description, setDescription] = useState("");
 
     const navigate = useNavigate();
 
@@ -18,26 +20,41 @@ function Home(){
     const fetchData = async () => {
         try{
             const response = await fetch(`http://localhost:5000/api/home?name=${displayProject}`);
-            const projectId = await response.json();
-            console.log(projectId.id);
-            setDisplayProjectId(projectId);
+            if(!response.ok){
+                throw new Error('Failed to fetch data');
+            }
+            const data = await response.json();
+            setDisplayProjectId(data[0].id);
+            fetchDescription(data[0].s_description);
         }catch(error){
             console.error('Error fetching data', error);
         }
     };
 
-    const Navigate = () => {
-        console.log("Clicked nav");
-        navigate('/projects');
+    //get the short description for the display project
+    const fetchDescription = async (filePath) => {
+        try{
+            const response = await fetch(filePath);
+            if(!response.ok){
+                throw new Error("Failed to fetch file");
+            }
+            const text = await response.text();
+            setDescription(text);
+        }catch(error){
+            console.error('Error fetching description ', error);
+        }
     };
 
+    const navigateToInfo = () =>{
+        navigate("/proiecte");
+    };
 
     return(
         <>
         <div>
             <table>
                 <tr> 
-                    <td> <img src="images/vff-logo.png" width="300px"/> </td>
+                    <td> <img src={displayImage} width="300px"/> </td>
                     <td>
                         <h1> Cine suntem noi? </h1>
                         <h3> 
@@ -52,9 +69,10 @@ function Home(){
             
         </div>
         <div>
-            <h1> Proiecte Recente: </h1>
-            <Project projectId={displayProjectId} />
-            <button onClick={Navigate}> navigate </button>
+            <h1> {displayProject} </h1>
+            <h2> {description} </h2>
+            <button onClick={navigateToInfo}> Mai multe informatii </button>
+
         </div>
         <div>
             <h1> Mică galerie foto </h1>
